@@ -15,7 +15,7 @@ interface ItemDao {
 	fun getItems(): List<Item>
 
 	@Query("SELECT * FROM Items WHERE id = :itemId")
-	fun getItemById(itemId: String): Item?
+	fun getItemById(itemId: Int): Item?
 
 	@Insert(onConflict = OnConflictStrategy.REPLACE)
 	fun insertItem(item: Item)
@@ -24,7 +24,7 @@ interface ItemDao {
 	fun updateItem(item: Item): Int
 
 	@Query("DELETE FROM Items WHERE id = :itemId")
-	fun deleteItemById(itemId: String): Int
+	fun deleteItemById(itemId: Int): Int
 
 	@Query("DELETE FROM Items")
 	fun deleteItems()
